@@ -69,9 +69,9 @@ public class TCPNetworkModule implements NetworkModule {
 		try {
 			// @TRACE 252=connect to host {0} port {1} timeout {2}
 			log.fine(CLASS_NAME,methodName, "252", new Object[] {host, Integer.valueOf(port), Long.valueOf(conTimeout*1000)});
-			SocketAddress sockaddr = new InetSocketAddress(host, port);
-			socket = factory.createSocket();
-			socket.connect(sockaddr, conTimeout*1000);
+//			SocketAddress sockaddr = new InetSocketAddress(host, port);
+			socket = factory.createSocket(host, port);
+//			socket.connect(sockaddr, conTimeout*1000);
 			socket.setSoTimeout(1000);
 		}
 		catch (ConnectException ex) {
